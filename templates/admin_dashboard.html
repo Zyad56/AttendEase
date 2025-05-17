@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+  <h2>Admin Dashboard</h2>
+  <div class="btn-group" role="group">
+    <a class="btn btn-primary" href="{{ url_for('admin_users') }}">Manage Users</a>
+    <a class="btn btn-primary" href="{{ url_for('report_summary') }}">View Reports</a>
+  </div>
+{% endblock %}

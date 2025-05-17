@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+<div class="d-flex vh-100 justify-content-center align-items-center">
+  <div class="text-center" style="transform: translateY(-80%);">
+    <h2>Welcome to AttendEase</h2>
+    <p>Please choose your role:</p>
+    <a href="{{ url_for('login_role', role='teacher') }}" class="btn btn-lg btn-primary m-2">I am a Teacher</a>
+    <a href="{{ url_for('login_role', role='student') }}" class="btn btn-lg btn-secondary m-2">I am a Student</a>
+    <a href="{{ url_for('login_role', role='admin') }}" class="btn btn-lg btn-info m-2">I am an Admin</a>
+  </div>
+</div>
+{% endblock %}

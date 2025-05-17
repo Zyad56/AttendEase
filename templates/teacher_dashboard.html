@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% block title %}Teacher Dashboard{% endblock %}
+{% block content %}
+  <h2>Your Courses</h2>
+  <div class="row">
+    {% for cls in classes %}
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ cls.ClassName }}</h5>
+          <div class="btn-group mb-2">
+            <a href="{{ url_for('take_attendance', class_id=cls.ClassID) }}"
+               class="btn btn-sm btn-primary">Today</a>
+            {% for dt in past_dates %}
+            <a href="{{ url_for('take_attendance', class_id=cls.ClassID, att_date=dt) }}"
+               class="btn btn-sm btn-light">{{ dt }}</a>
+            {% endfor %}
+          </div>
+          <p class="card-text">{{ cls.Description }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% if not classes %}
+      <p class="text-muted">You have no courses assigned.</p>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,16 @@
+# ignore Python cache
+__pycache__/
+*.py[cod]
+
+# ignore venv folder
+venv/
+
+# ignore database file
+instance/attendease.db
+
+# ignore pytest cache
+.pytest_cache/
+
+# ignore IDE files
+.vscode/
+.idea/

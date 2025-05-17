@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block title %}Attendance – {{ cls.ClassName }}{% endblock %}
+{% block content %}
+  <h2>Attendance for {{ cls.ClassName }} ({{ today }})</h2>
+  <form method="post">
+    <table class="table">
+      <thead>
+        <tr><th>Student</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        {% for enrol in enrollments %}
+          {% set rec = existing.get(enrol.EnrollmentID) %}
+          <tr>
+            <td>{{ enrol.student.user.Name }}</td>
+            <td>
+              <select name="status_{{ enrol.EnrollmentID }}" class="form-control">
+                <option value="present"  {% if rec and rec.Status=='present' %}selected{% endif %}>Present</option>
+                <option value="absent"   {% if rec and rec.Status=='absent'  %}selected{% endif %}>Absent</option>
+              </select>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <button type="submit" class="btn btn-success">Save Attendance</button>
+  </form>
+{% endblock %}

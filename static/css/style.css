@@ -1,0 +1,81 @@
+/* Canvas‑style theme for AttendEase */
+
+/* 1. Global resets */
+body, html {
+  height: 100%; margin: 0;
+}
+
+/* 2. Canvas Blue top bar */
+.canvas-header {
+  background-color: #0270C9;
+  color: #fff;
+  height: 60px;
+}
+
+/* 3. Sidebar */
+.canvas-sidebar {
+  width: 200px;
+  min-height: calc(100vh - 60px);
+  border-right: 1px solid #ddd;
+}
+.canvas-sidebar .nav-link {
+  color: #333;
+  padding: 10px 15px;
+}
+.canvas-sidebar .nav-link.active,
+.canvas-sidebar .nav-link:hover {
+  background-color: #e6f4fd;
+  color: #0270C9;
+  font-weight: 600;
+}
+
+/* 4. Content area */
+.canvas-content {
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 60px);
+}
+
+/* 5. Typography */
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #212529;
+}
+
+/* 6. Tables & Cards */
+.table {
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+.table thead {
+  background-color: #f1f2f2;
+}
+.card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* 7. Buttons */
+.btn-primary {
+  background-color: #0270C9;
+  border-color: #0270C9;
+}
+.btn-primary:hover {
+  background-color: #025a9c;
+  border-color: #025a9c;
+}
+.btn-light {
+  color: #0270C9;
+  background-color: #f1f2f2;
+  border: 1px solid #ddd;
+}
+.btn-light:hover {
+  background-color: #e6f4fd;
+}
+
+/* 8. Form controls */
+.form-control {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

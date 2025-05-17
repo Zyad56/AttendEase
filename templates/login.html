@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}{{ role|capitalize }} Login{% endblock %}
+{% block content %}
+  <h2>{{ role|capitalize }} Login</h2>
+  <form method="post">
+    <input type="hidden" name="role" value="{{ role }}">
+    <div class="form-group">
+      <label>ID</label>
+      <input type="text" name="username" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" name="password" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+{% endblock %}

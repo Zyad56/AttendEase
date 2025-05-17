@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+{% block title %}My Courses{% endblock %}
+{% block content %}
+  <h2>My Enrolled Courses</h2>
+  <div class="row">
+    {% for cname, absent in absences %}
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ cname }}</h5>
+          <p>Days Absent: <strong>{{ absent }}</strong></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    {% if not absences %}
+      <p class="text-muted">You are not enrolled in any courses.</p>
+    {% endif %}
+  </div>
+{% endblock %}

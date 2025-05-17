@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+{% block title %}Attendance Summary Report{% endblock %}
+{% block content %}
+  <h2>Attendance Summary</h2>
+  <form method="get" class="form-inline mb-3">
+    <div class="form-group mr-2">
+      <label class="mr-1">Course:</label>
+      <select name="class_id" class="form-control">
+        <option value="">All</option>
+        {% for c in classes %}
+        <option value="{{ c.ClassID }}" {% if selected_class==c.ClassID %}selected{% endif %}>
+          {{ c.ClassName }}
+        </option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group mr-2">
+      <label class="mr-1">Student:</label>
+      <input name="student_name" value="{{ student_filter }}" class="form-control" placeholder="Name">
+    </div>
+    <button type="submit" class="btn btn-primary mr-2">Filter</button>
+    <a href="{{ url_for('report_summary', export='csv', class_id=selected_class, student_name=student_filter) }}"
+       class="btn btn-secondary">Export CSV</a>
+  </form>
+
+  {% if results %}
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped">
+      <thead><tr>
+        <th>Course</th><th>Student</th><th>Present</th><th>Total</th><th>%</th>
+      </tr></thead>
+      <tbody>
+        {% for cls, student, present, total, pct in results %}
+        <tr>
+          <td>{{ cls }}</td>
+          <td>{{ student }}</td>
+          <td>{{ present }}</td>
+          <td>{{ total }}</td>
+          <td>{{ '%.2f' % pct }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <p class="text-muted">No attendance records found for the selected filters.</p>
+  {% endif %}
+{% endblock %}
